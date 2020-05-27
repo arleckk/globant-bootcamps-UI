@@ -1,6 +1,7 @@
 const fs = require('fs');
 var fileName = "test.txt",
     content = "Hey There!";
+let pathFile = '/Users/arleckk/Proyectos/globant/globant-bootcamps-UI/src/week2/day4-5/xw.js';
 
 fs.writeFile(__dirname + "/" + fileName, content, function(err) {
     if(err) {
@@ -9,6 +10,12 @@ fs.writeFile(__dirname + "/" + fileName, content, function(err) {
 
     console.log("The file was saved!");
 });
+
+if(fs.existsSync(pathFile)) {
+    console.log(`the file ${pathFile} exist`);
+} else {
+    console.log(`something went wrong, are you sure about this file? ${pathFile}`);
+}
 
 // This is a node app, this code saves a file on the current path with
 // the content on the variable with that name.
