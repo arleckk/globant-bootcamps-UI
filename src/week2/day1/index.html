@@ -1,28 +1,75 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
-<script>
-    var Animal = (function(type) {
-        this.type = type;
-    });
-
-    Animal.prototype.talk = function() {
-        console.log(`Hi, I'm an Animal, but also a ${this.type}`);
-    };
-
-    let rabbit = new Animal("Rabbit");
-    rabbit.talk();
-</script>
-
-<!-- Now it's your turn to make some changes
-    - Refactor the previous code to use getters and settters
-    - Add at least 2 more properties
-    - Add at least 2 more methods
-    - Create a new class that inherits from Animal
-    - Override one of the methods you previously defined
-
-    ****************************************************
-    ****               BONUS POINTS                 ****
-    ****      MAKE A 2nd VERSION USING ES6 CLASSES  ****
-    ****                                            ****
-    ****************************************************
--->
+    <script>
+        class Animal {
+            constructor(type) {
+                this.type = type;
+            }
+    
+            get mySize() {
+                return Math.floor(Math.random * 100)
+            }
+    
+            set mySize(value) {
+                this.size = value;
+            }
+    
+            get myColor() {
+                return this.color;
+            }
+    
+            set myColor(value) {
+                this.color = value;
+            }
+    
+            talk() {
+                console.log(`Hi, I'm an Animal, but also a ${this.type}`);
+            }
+    
+            eat() {
+                console.log(`I'm eating carrots`);
+            }
+    
+            sleep() {
+                console.log(`Good night zzzzzzz.`);
+            }
+    
+        }
+    
+        class Dog extends Animal {
+            constructor() {
+                super("Dog");
+            }
+    
+            sleep() {
+                console.log(`barking sounds from midnight until 4 am then zzzzzzz...`);
+            }
+    
+        }
+    
+        let rabbit = new Animal("Rabbit");
+        rabbit.myColor = 'white';
+        rabbit.mySize = 20;
+        rabbit.talk();
+        rabbit.eat();
+        rabbit.sleep();
+        let dog = new Dog();
+        dog.talk();
+        dog.sleep();
+    
+    </script>
+    
+    <!-- Now it's your turn to make some changes
+        - Refactor the previous code to use getters and settters
+        - Add at least 2 more properties
+        - Add at least 2 more methods
+        - Create a new class that inherits from Animal
+        - Override one of the methods you previously defined
+    
+        ****************************************************
+        ****               BONUS POINTS                 ****
+        ****      MAKE A 2nd VERSION USING ES6 CLASSES  ****
+        ****                                            ****
+        ****************************************************
+    -->
+    
