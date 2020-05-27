@@ -4,19 +4,20 @@
     (function(){
         "use strict";
         var willPass = "Hi there";
-        wontPass = "nope";
+        var wontPass = "nope";
 
         console.log(`willPass = ${willPass}`);
         console.log(`wontPass = ${wontPass}`);
 
         let someArr = [1, 2, 3, 4];
 
-        function giveMe(inx) {
-            return someArr[counter];
-        }
-
         for (let counter= 0; counter <= someArr.length; counter++) {
-            console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+            if(giveMe(counter)) 
+                console.log(`Index = ${counter}, value = ${giveMe(counter)}`);
+        }
+        
+        function giveMe(inx) {
+            return someArr[inx];
         }
 
         console.log("The code continues");
