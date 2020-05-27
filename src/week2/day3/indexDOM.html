@@ -1,9 +1,29 @@
 <!-- Take this file and open it on a browser, then open the console
     inside developer tools -->
 <script>
-    (function(){
+    window.addEventListener('load', function() {
         "use strict";
-    })()
+        var numOne = document.createElement("input");
+        numOne.setAttribute("id", "num-one")
+        var numTwo = document.createElement("input");
+        numTwo.setAttribute("id", "num-two")
+        var add = document.createElement("BUTTON");
+        add.innerHTML = "ADD";
+        add.onclick = function() {
+            let num1 = numOne.value | 0;
+            let num2 = numTwo.value | 0;
+            result.innerHTML = `The result of the operation is ${parseInt(num1) + parseInt(num2)}`;
+        }
+        var plus = document.createElement("span");
+        plus.innerHTML = "+";
+        var result = document.createElement("p");
+        document.body.appendChild(numOne);
+        document.body.appendChild(plus);
+        document.body.appendChild(numTwo);
+        document.body.appendChild(add);
+        document.body.appendChild(result);
+    });
+
 </script>
 
 <!-- Now it's your turn to make some changes

@@ -1,9 +1,24 @@
 <!-- Take this file and open it on a browser, then open the console
 inside developer tools -->
 <script>
-    (function(){
+    var counter = 1;
+    window.addEventListener('load', function() {
         "use strict";
-    })()
+        let createBtn = document.createElement('button');
+        createBtn.innerHTML = `BUTTON ${counter}`;
+        createBtn.onclick = createNewButton;
+        document.body.appendChild(createBtn);
+    });
+
+    function createNewButton(e) {
+        this.disabled=true;
+        counter = counter +1;
+        let btn = document.createElement('button');
+        btn.innerHTML = `BUTTON ${counter}`;
+        btn.onclick = createNewButton;
+        document.body.appendChild(btn);
+    }
+
 </script>
 
 <!-- Now it's your turn to make some changes
